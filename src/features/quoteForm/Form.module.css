@@ -1,0 +1,41 @@
+.reactHookController {
+  margin-top: 1em;
+}
+
+.reactHookController > div{
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.inputContainer, .textareaContainer  {
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.inputContainer input {
+  flex-grow: 1;
+  height: 32px;
+}
+
+.textareaContainer textarea {
+  flex-grow: 1;
+}
+.inputContainer label, .textareaContainer label  {
+  flex-basis: 22%;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.form [type=submit] {
+  margin-bottom: 24%;
+  margin-top: 6%;
+}

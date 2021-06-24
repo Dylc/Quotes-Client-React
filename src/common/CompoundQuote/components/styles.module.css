@@ -1,0 +1,64 @@
+
+  .title {
+    font-family: 'Varela';
+    /* font-family: 'Yiddish'; */
+    /* font-family: 'DanaYad'; */
+    /* font-family: 'Nunito'; */
+    font-size: 36px;
+    margin-top: 0;
+    color: #2A323C;
+  }
+  
+  .author {
+    text-align: right;
+    font-family: 'Nunito';
+    margin-right: 6%;
+    font-size: 16px;
+    font-style: italic;
+    color: #5C6269;
+  }
+  
+  .context {
+    text-align: justify;
+    /* font-family: 'Nunito'; */
+    color: #373a3d;
+    font-size: 18px;
+  }
+  
+  .tagsContainer {
+    text-align: end;
+    margin-bottom: 12px;
+  }
+  
+  .tagsContainer div{
+    margin: 4px
+  }
+  .tagsContainer div:last-child{
+    margin: 0px;
+  }
+  
+  .contextRtl p {
+    direction: rtl;
+    text-align: justify!important;
+  }
+  
+  .contextLtl p {
+    direction: ltr;
+    text-align: justify!important;
+  }
+
+  .flagsContainer img{
+    margin-left: 16px;
+    margin-top: 8px;
+    object-fit: cover;
+    margin-bottom: 12px;    
+    box-shadow: 3px 3px 3px #ccc;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .flagsContainer {
+    text-align: end;
+  }
