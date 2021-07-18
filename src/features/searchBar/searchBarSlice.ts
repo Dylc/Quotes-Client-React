@@ -7,12 +7,14 @@ export interface QuoteState {
   query: string
   status: 'idle' | 'loading' | 'failed'
   quotes: IQuote[]
+  isSearching: boolean;
 }
 
 const initialState: QuoteState = {
   query: "",
   status: 'idle',
-  quotes: []
+  quotes: [],
+  isSearching: false
 };
 
 export interface IFetchQuoteAsync {
@@ -31,9 +33,9 @@ export const searchBarSlice = createSlice({
   name: 'searchBar',
   initialState,
   reducers: {
-    // increment: (state) => {
-    //   state.counter += 1;
-    // },
+    setIsSearching: (state, action: PayloadAction<boolean>) => {
+      state.isSearching = action.payload;
+    },
     // decrementCounter: (state) => {
     //   state.counter -= 1;
     // },
@@ -56,12 +58,13 @@ export const searchBarSlice = createSlice({
   },
 });
 
-export const { } = searchBarSlice.actions;
+export const { setIsSearching } = searchBarSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectSearchedQuotes = (state: RootState) => state.searchBar.quotes;
+export const selectIsSearching = (state: RootState) => state.searchBar.isSearching;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.

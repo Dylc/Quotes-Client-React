@@ -9,8 +9,8 @@ interface IQuoteComponentFlags {
 function Flags({flags, onClick} : IQuoteComponentFlags) {
     return (
       <div className={styles.flagsContainer}>
-        {flags.map((flag) => (
-          <img key={flag.name} width={24} height={24} src={flag.src} onClick={()=>onClick(flag.name)}/>
+        {flags.map((flag, ind) => (
+          <img key={`${flag.name}-${ind}`} width={24} height={24} src={flag.src} onClick={()=>onClick(flag.name)}/>
         ))}
       </div>
     );

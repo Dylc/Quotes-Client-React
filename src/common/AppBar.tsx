@@ -183,6 +183,7 @@ function MyHeaderAppBar() {
             <Typography className={classes.title} variant="h6" noWrap>
               {SHARED_MESSAGES.homePageTitle()}
             </Typography>
+          
           {<SearchBar />}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>

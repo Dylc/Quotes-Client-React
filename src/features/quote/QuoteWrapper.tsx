@@ -14,7 +14,6 @@ function QuoteWrapper() {
 
   const quote = quotes[counter];
   const flags = getFlags(quote.languages)
-  console.log('flags: ', flags)
   const dispatch = useDispatch();
   
   const handleChangeLang = (lang: enumLanguages) => dispatch(setLang(lang));
