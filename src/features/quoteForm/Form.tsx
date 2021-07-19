@@ -87,7 +87,13 @@ export function QuoteForm() {
           />
         ))}
 
-        <Button type="submit" fullWidth size="large" variant="contained" color="primary">
+        <Button
+          type="submit"
+          fullWidth
+          size="large"
+          variant="contained"
+          color="primary"
+        >
           {action}
         </Button>
       </form>

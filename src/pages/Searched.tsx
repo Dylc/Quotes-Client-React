@@ -6,9 +6,10 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useAppSelector } from "../app/hooks";
-import { selectSearchedQuotes } from '../features/searchBar/searchBarSlice'
-import { enumLanguages, selectLang } from "../features/contextMenu/contextMenuSlice";
+import { selectStatus, selectSearchedQuotes } from '../features/searchBar/searchBarSlice'
+import { selectLang } from "../features/contextMenu/contextMenuSlice";
 import NoResults from '../common/NoResults';
+import Loading from "../common/Loading";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,8 +32,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function Searched(props) {
   const searchedQuotes = useAppSelector(selectSearchedQuotes)
+  const status = useAppSelector(selectStatus);
   const lang = useAppSelector(selectLang)
-  console.log("Searched:", searchedQuotes)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<number | false>(false);
 
@@ -71,8 +72,13 @@ function Searched(props) {
   </div>
   );
 
-  return searchedQuotes.length === 0 ? <NoResults /> : getResult()
-  
+  return status === "loading" ? (
+    <Loading />
+  ) : searchedQuotes.length === 0 ? (
+    <NoResults />
+  ) : (
+    getResult()
+  );
 }
 
 export default Searched;

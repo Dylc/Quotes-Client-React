@@ -65,6 +65,7 @@ export const { setIsSearching } = searchBarSlice.actions;
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectSearchedQuotes = (state: RootState) => state.searchBar.quotes;
 export const selectIsSearching = (state: RootState) => state.searchBar.isSearching;
+export const selectStatus = (state: RootState) => state.searchBar.status;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.

@@ -9,6 +9,17 @@
     color: #2A323C;
   }
   
+  .title:before{
+    content: open-quote;
+    color: #373a3d85;
+  }
+
+  .title:after{
+    content: close-quote;
+    color: #373a3d85;
+  }
+
+  
   .author {
     text-align: right;
     font-family: 'Nunito';

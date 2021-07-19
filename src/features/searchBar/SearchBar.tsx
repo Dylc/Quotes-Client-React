@@ -63,6 +63,8 @@ export function SearchBar() {
   
   if (isSearching && history.location.pathname !== '/searched'){
     history.push('/searched');
+  } else if (!isSearching && history.location.pathname == '/searched'){
+    history.push('/');
   }
 
   const handleOnSearch = (event) => {
@@ -73,7 +75,6 @@ export function SearchBar() {
     dispatch(fetchQuoteByQueryAsync(query))
   }
 
-  console.log('Searched bar', searchedQuotes)
   return (
     <div className={classes.search}>
       <div className={classes.searchIcon}>

@@ -31,6 +31,7 @@ export function ContextMenu(props: IContextMenu) {
 
   const handleAddNewQuote = () => {
     history.push('/add');
+    handleClose()
   }
 
   return (

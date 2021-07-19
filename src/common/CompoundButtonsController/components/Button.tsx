@@ -16,9 +16,9 @@ interface IButtonsController{
 
 function Button({disabled, previous, next, edit, onClick, children} : IButtonsController) {
     return (
-      <IconButton aria-label="button-controll" disabled={disabled} onClick={onClick}>
-        {previous && <ArrowBackIcon/>}
-        {next && <ArrowForwardIcon/>}
+      <IconButton className={styles.icon} aria-label="button-controll" disabled={disabled} onClick={onClick}>
+        {previous && <ArrowBackIcon />}
+        {next && <ArrowForwardIcon />}
         {edit && <EditIcon/>}
         {children}
       </IconButton>
