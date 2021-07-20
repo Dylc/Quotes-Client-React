@@ -6,5 +6,5 @@ export function fetchQuotes(props: IFetchQuoteAsync) {
   Object.keys(props).forEach((key) => {
     query += `${key}=${props[key]}&`;
   });
-  return axios.get("/quotes" + `${query}limit=2`);
+  return axios.get(`/quotes${query}limit=2`);
 }

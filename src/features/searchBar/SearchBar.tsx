@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
   fade,
@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core/styles";
 import {
   fetchQuoteByQueryAsync,
-  selectSearchedQuotes,
   setIsSearching,
   selectIsSearching,
 } from "./searchBarSlice";
@@ -63,15 +62,11 @@ export function SearchBar() {
   const dispatch = useAppDispatch();
   const history = useHistory();
 
-  const searchedQuotes = useAppSelector(selectSearchedQuotes);
   const isSearching = useAppSelector(selectIsSearching);
-
-  // console.log("searchedQuotes: ", searchedQuotes)
-  // console.log(" history.location.pathname: ",  history.location.pathname)
 
   if (isSearching && history.location.pathname !== "/searched") {
     history.push("/searched");
-  } else if (!isSearching && history.location.pathname == "/searched") {
+  } else if (!isSearching && history.location.pathname === "/searched") {
     history.push("/");
   }
 

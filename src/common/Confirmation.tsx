@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default ({ onClose, children }) => {
+const MyAlert = ({ onClose, children }) => {
   const classes = useStyles();
 
   return (
@@ -27,3 +27,5 @@ export default ({ onClose, children }) => {
     </Portal>
   );
 };
+
+export default MyAlert;

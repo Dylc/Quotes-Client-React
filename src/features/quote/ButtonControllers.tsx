@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  selectQuotes,
   selectCounter,
   selectCount,
   incrementCounter,
@@ -11,7 +10,6 @@ import { useHistory } from "react-router-dom";
 import ButtonsController from "../../common/CompoundButtonsController/ButtonsController";
 
 function ButtonControllers() {
-  const quotes = useAppSelector(selectQuotes);
   const counter = useAppSelector(selectCounter);
   const count = useAppSelector(selectCount);
 
@@ -19,8 +17,7 @@ function ButtonControllers() {
   const history = useHistory();
 
   const decrementDisabled = counter <= 0;
-  const incrementDisabled = count ? counter == count - 1 : false;
-  // const incrementDisabled = (count ? count <= quotes.length : false);
+  const incrementDisabled = count ? counter === count - 1 : false;
 
   const handleEditQuote = () => {
     history.push("/edit");

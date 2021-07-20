@@ -1,4 +1,3 @@
-import React from "react";
 import { Tags, Text, Context, Flags } from "./components";
 
 function Quote({ children }) {

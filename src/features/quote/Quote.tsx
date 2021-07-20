@@ -26,7 +26,7 @@ export function Quote() {
         skip: skip,
       })
     );
-  }, []);
+  }, [dispatch, skip]);
 
   /**
    * Checks if we ready to present data

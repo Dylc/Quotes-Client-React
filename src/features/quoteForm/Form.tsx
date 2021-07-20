@@ -10,12 +10,11 @@ import {
   cleanResultFor,
 } from "./formSlice";
 import { IQuote, selectQuotes, selectCounter } from "../quote/quoteSlice";
-import { SHARED_MESSAGES } from "../../lang/messages.js";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styles from "./Form.module.css";
 import Loading from "../../common/Loading";
-import Confirmation from "../../common/Confirmation";
+import Alert from "../../common/Confirmation";
 import TextFieldController from "../../common/TextFieldController";
 import Button from "@material-ui/core/Button";
 import { formatData } from "../../utilites";
@@ -106,14 +105,14 @@ export function QuoteForm() {
     <>
       {isLoading() ? <Loading /> : getForm()}
       {addResult && (
-        <Confirmation onClose={handleOnCloseAlert}>
+        <Alert onClose={handleOnCloseAlert}>
           Your quote has been successfully added
-        </Confirmation>
+        </Alert>
       )}
       {editResult && (
-        <Confirmation onClose={handleOnCloseAlert}>
+        <Alert onClose={handleOnCloseAlert}>
           Your quote has been successfully edited
-        </Confirmation>
+        </Alert>
       )}
     </>
   );

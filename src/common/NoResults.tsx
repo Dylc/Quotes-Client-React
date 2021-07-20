@@ -22,7 +22,7 @@ function NoResults() {
   const classes = useStyles();
   return (
     <div className={classes.wrapper}>
-      <img src={NoResultsSvg} />
+      <img src={NoResultsSvg} alt="No Results" />
       <p className={classes.text}> No resuts found </p>
     </div>
   );

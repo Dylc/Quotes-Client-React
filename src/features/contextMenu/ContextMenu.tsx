@@ -2,8 +2,6 @@ import React, { useState, SetStateAction, Dispatch } from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { useHistory } from "react-router-dom";
-
-import { useAppDispatch } from "../../app/hooks";
 import styles from "./ContextMenu.module.css";
 import SelectLanguageDialog from "./SelectLanguageDialog";
 import { SHARED_MESSAGES } from "../../lang/messages";
@@ -14,7 +12,6 @@ interface IContextMenu {
 }
 export function ContextMenu(props: IContextMenu) {
   const { setContextMenuAnchorEl, anchorEl } = props;
-  const dispatch = useAppDispatch();
   const history = useHistory();
 
   const [openSelectLangDialog, setOpenSelectLangDialog] =

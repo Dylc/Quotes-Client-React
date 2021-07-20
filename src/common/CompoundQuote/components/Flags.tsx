@@ -12,6 +12,7 @@ function Flags({ flags, onClick }: IQuoteComponentFlags) {
       {flags.map((flag, ind) => (
         <img
           key={`${flag.name}-${ind}`}
+          alt={flag.name}
           width={24}
           height={24}
           src={flag.src}

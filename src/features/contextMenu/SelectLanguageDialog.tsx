@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import List from "@material-ui/core/List";
@@ -14,17 +13,6 @@ import {
 } from "./contextMenuSlice";
 import { useAppSelector } from "../../app/hooks";
 import styles from "./ContextMenu.module.css";
-
-const useStyles = makeStyles({
-  container: {
-    flex: "0 1 50%",
-    display: "flex",
-    justifyContent: "center",
-  },
-  button: {
-    margin: 4,
-  },
-});
 
 const languages: ILanguage[] = [
   {
@@ -47,7 +35,6 @@ interface ISelectLanguageDialog {
 }
 
 function SelectLanguageDialog(props: ISelectLanguageDialog) {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const { handleContextMenuClose, handleToggleOpenSelectLangDialog } = props;
 
