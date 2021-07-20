@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
-import { fetchQuotes } from './quoteAPI';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState, AppThunk } from "../../app/store";
+import { fetchQuotes } from "./quoteAPI";
 
 export interface IQuote {
   id: string;
@@ -20,23 +20,23 @@ export interface QuoteState {
   count?: number;
   counter: number;
   skip: number;
-  status: 'idle' | 'loading' | 'failed';
+  status: "idle" | "loading" | "failed";
 }
 
 const initialState: QuoteState = {
   quotes: [],
   skip: 0,
   counter: 0,
-  status: 'idle',
+  status: "idle",
 };
 
 export interface IFetchQuoteAsync {
   // lang: string,
-  skip: number
+  skip: number;
 }
 
 export const fetchQuoteAsync = createAsyncThunk(
-  'quote/fetchQuotes',
+  "quote/fetchQuotes",
   async (props: IFetchQuoteAsync) => {
     const response = await fetchQuotes(props);
     return response.data;
@@ -44,7 +44,7 @@ export const fetchQuoteAsync = createAsyncThunk(
 );
 
 export const quoteSlice = createSlice({
-  name: 'quote',
+  name: "quote",
   initialState,
   reducers: {
     increment: (state) => {
@@ -63,10 +63,10 @@ export const quoteSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchQuoteAsync.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(fetchQuoteAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
+        state.status = "idle";
         state.quotes = [...state.quotes, ...action.payload.rows];
         state.count = action.payload.count;
         state.skip += action.payload.rows.length;
@@ -87,22 +87,21 @@ export const selectCounter = (state: RootState) => state.quote.counter;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
-export const incrementCounter = () => (
-  dispatch,
-  getState
-) => {
+export const incrementCounter = () => (dispatch, getState) => {
   const state = getState();
   const quotes = selectQuotes(state);
   const counter = selectCounter(state);
   const skip = selectSkip(state);
-  if (counter >= quotes.length - 1){
-    dispatch(fetchQuoteAsync({
-      // lang: 'he',
-      skip: skip
-    }))
-    dispatch(increment())
+  if (counter >= quotes.length - 1) {
+    dispatch(
+      fetchQuoteAsync({
+        // lang: 'he',
+        skip: skip,
+      })
+    );
+    dispatch(increment());
   } else {
-    dispatch(increment())
+    dispatch(increment());
   }
 };
 

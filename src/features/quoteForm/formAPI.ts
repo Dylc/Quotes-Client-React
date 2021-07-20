@@ -1,8 +1,8 @@
-import axios from '../../app/axios';
+import axios from "../../app/axios";
 
 export function editQuote(id: string, quote: unknown) {
-  return axios.put(`/quotes/${id}`, quote)
+  return axios.put(`/quotes/${id}`, quote);
 }
 export function addQuote(quote: unknown) {
-  return axios.post(`/quotes`, quote)
+  return axios.post(`/quotes`, quote);
 }

@@ -6,7 +6,7 @@ import {
   incrementCounter,
   decrementCounter,
 } from "./quoteSlice";
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { useHistory } from "react-router-dom";
 import ButtonsController from "../../common/CompoundButtonsController/ButtonsController";
 
@@ -19,12 +19,12 @@ function ButtonControllers() {
   const history = useHistory();
 
   const decrementDisabled = counter <= 0;
-  const incrementDisabled = (count ? counter == count - 1 : false);
+  const incrementDisabled = count ? counter == count - 1 : false;
   // const incrementDisabled = (count ? count <= quotes.length : false);
 
   const handleEditQuote = () => {
-    history.push('/edit');
-  }
+    history.push("/edit");
+  };
 
   return (
     <ButtonsController>

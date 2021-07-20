@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   fade,
   makeStyles,
@@ -17,9 +17,9 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { ContextMenu } from '../features/contextMenu/ContextMenu';
-import { SHARED_MESSAGES } from '../lang/messages';
-import HomeIcon from '@material-ui/icons/Home';
+import { ContextMenu } from "../features/contextMenu/ContextMenu";
+import { SHARED_MESSAGES } from "../lang/messages";
+import HomeIcon from "@material-ui/icons/Home";
 import { useHistory } from "react-router-dom";
 import { SearchBar } from "../features/searchBar/SearchBar";
 
@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       position: "sticky",
       top: 0,
-      '& header': {
-        backgroundColor: 'rgb(45, 76, 131)'
-      }
+      "& header": {
+        backgroundColor: "rgb(45, 76, 131)",
+      },
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -61,22 +61,20 @@ function MyHeaderAppBar() {
   const classes = useStyles();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [
-    mobileMoreAnchorEl,
-    setMobileMoreAnchorEl,
-  ] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
+    React.useState<null | HTMLElement>(null);
 
-  const [contextMenuAnchorEl, setContextMenuAnchorEl] = useState<null | HTMLElement>(null);
+  const [contextMenuAnchorEl, setContextMenuAnchorEl] =
+    useState<null | HTMLElement>(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const isContextMenuOpen = Boolean(contextMenuAnchorEl);
 
   const handleClickAway = () => {
-    console.log('handleClickAway')
-  }
+    console.log("handleClickAway");
+  };
 
-  
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -153,11 +151,11 @@ function MyHeaderAppBar() {
 
   const handleContextMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setContextMenuAnchorEl(event.currentTarget);
-  }
+  };
 
   const handleOpenHomePage = () => {
-    history.push('/');
-  }
+    history.push("/");
+  };
   return (
     <div className={classes.grow}>
       <AppBar position="static">
@@ -180,10 +178,10 @@ function MyHeaderAppBar() {
           >
             <HomeIcon />
           </IconButton>
-            <Typography className={classes.title} variant="h6" noWrap>
-              {SHARED_MESSAGES.homePageTitle()}
-            </Typography>
-          
+          <Typography className={classes.title} variant="h6" noWrap>
+            {SHARED_MESSAGES.homePageTitle()}
+          </Typography>
+
           {<SearchBar />}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
@@ -223,9 +221,12 @@ function MyHeaderAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      {isContextMenuOpen && <ContextMenu 
-        setContextMenuAnchorEl={setContextMenuAnchorEl} 
-        anchorEl={contextMenuAnchorEl} />}
+      {isContextMenuOpen && (
+        <ContextMenu
+          setContextMenuAnchorEl={setContextMenuAnchorEl}
+          anchorEl={contextMenuAnchorEl}
+        />
+      )}
     </div>
   );
 }

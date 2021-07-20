@@ -3,25 +3,13 @@ import React from "react";
 
 export const SHARED_MESSAGES = {
   next: () => (
-    <FormattedMessage
-      id="next"
-      defaultMessage="Next"
-      description="Next"
-    />
+    <FormattedMessage id="next" defaultMessage="Next" description="Next" />
   ),
   edit: () => (
-    <FormattedMessage
-      id="edit"
-      defaultMessage="Edit"
-      description="Edit"
-    />
+    <FormattedMessage id="edit" defaultMessage="Edit" description="Edit" />
   ),
   send: () => (
-    <FormattedMessage
-      id="send"
-      defaultMessage="Send"
-      description="Send"
-    />
+    <FormattedMessage id="send" defaultMessage="Send" description="Send" />
   ),
   languages: () => (
     <FormattedMessage

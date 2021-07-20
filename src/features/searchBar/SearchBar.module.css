@@ -18,7 +18,7 @@
   padding-left: 16px;
   padding-right: 16px;
   margin-top: 2px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .button {
@@ -61,7 +61,7 @@
 }
 
 .asyncButton:after {
-  content: '';
+  content: "";
   background-color: rgba(112, 76, 182, 0.15);
   display: block;
   position: absolute;
@@ -86,22 +86,22 @@
 }
 
 .title {
-  font-family: 'Varela';
+  font-family: "Varela";
   /* font-family: 'Yiddish'; */
   /* font-family: 'DanaYad'; */
   /* font-family: 'Nunito'; */
   font-size: 36px;
   margin-top: 0;
-  color: #2A323C;
+  color: #2a323c;
 }
 
 .author {
   text-align: right;
-  font-family: 'Nunito';
+  font-family: "Nunito";
   margin-right: 6%;
   font-size: 16px;
   font-style: italic;
-  color: #5C6269;
+  color: #5c6269;
 }
 
 .context {
@@ -117,16 +117,16 @@
   margin-bottom: 12px;
 }
 
-.tagsContainer div{
-  margin: 4px
+.tagsContainer div {
+  margin: 4px;
 }
 
 .contextRtl p {
   direction: rtl;
-  text-align: justify!important;
+  text-align: justify !important;
 }
 
 .contextLtl p {
   direction: ltr;
-  text-align: justify!important;
+  text-align: justify !important;
 }

@@ -1,37 +1,32 @@
-import React from 'react';
-import './App.css';
-import MyHeaderAppBar from './common/AppBar';
+import React from "react";
+import "./App.css";
+import MyHeaderAppBar from "./common/AppBar";
 import { IntlProvider } from "react-intl";
 import messages from "./lang";
 import { selectLang } from "../src/features/contextMenu/contextMenuSlice";
 import { useAppSelector } from "../src/app/hooks";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Home from './pages/Home';
-import Edit from './pages/Edit';
-import Add from './pages/Add';
-import Searched from './pages/Searched';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import Home from "./pages/Home";
+import Edit from "./pages/Edit";
+import Add from "./pages/Add";
+import Searched from "./pages/Searched";
 
 const THEME = createMuiTheme({
   typography: {
     fontFamily: [
-      'Nunito',
-      'Roboto',
+      "Nunito",
+      "Roboto",
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif'
-    ].join(','),
-  }
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
 });
 
 function App() {
-
   const selectedLang = useAppSelector(selectLang);
-  
+
   return (
     <ThemeProvider theme={THEME}>
       <IntlProvider messages={messages[selectedLang]} locale={selectedLang}>

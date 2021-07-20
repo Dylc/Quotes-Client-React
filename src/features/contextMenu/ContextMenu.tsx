@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useAppDispatch } from "../../app/hooks";
 import styles from "./ContextMenu.module.css";
 import SelectLanguageDialog from "./SelectLanguageDialog";
-import { SHARED_MESSAGES } from '../../lang/messages';
+import { SHARED_MESSAGES } from "../../lang/messages";
 
 interface IContextMenu {
   setContextMenuAnchorEl: Dispatch<SetStateAction<HTMLElement | null>>;
@@ -17,9 +17,8 @@ export function ContextMenu(props: IContextMenu) {
   const dispatch = useAppDispatch();
   const history = useHistory();
 
-  const [openSelectLangDialog, setOpenSelectLangDialog] = useState<boolean>(
-    false
-  );
+  const [openSelectLangDialog, setOpenSelectLangDialog] =
+    useState<boolean>(false);
 
   const handleClose = () => {
     setContextMenuAnchorEl(null);
@@ -27,12 +26,12 @@ export function ContextMenu(props: IContextMenu) {
 
   const handleToggleOpenSelectLangDialog = () => {
     setOpenSelectLangDialog(!openSelectLangDialog);
-  }
+  };
 
   const handleAddNewQuote = () => {
-    history.push('/add');
-    handleClose()
-  }
+    history.push("/add");
+    handleClose();
+  };
 
   return (
     <>
@@ -48,7 +47,7 @@ export function ContextMenu(props: IContextMenu) {
           {SHARED_MESSAGES.languages()}
         </MenuItem>
         <MenuItem onClick={handleAddNewQuote}>
-          {SHARED_MESSAGES.addNew()}       
+          {SHARED_MESSAGES.addNew()}
         </MenuItem>
       </Menu>
       {openSelectLangDialog && (

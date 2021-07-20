@@ -1,28 +1,28 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
-import { fetchQuoteByQuery } from './searchBarAPI';
-import { IQuote } from '../quote/quoteSlice';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState, AppThunk } from "../../app/store";
+import { fetchQuoteByQuery } from "./searchBarAPI";
+import { IQuote } from "../quote/quoteSlice";
 
 export interface QuoteState {
-  query: string
-  status: 'idle' | 'loading' | 'failed'
-  quotes: IQuote[]
+  query: string;
+  status: "idle" | "loading" | "failed";
+  quotes: IQuote[];
   isSearching: boolean;
 }
 
 const initialState: QuoteState = {
   query: "",
-  status: 'idle',
+  status: "idle",
   quotes: [],
-  isSearching: false
+  isSearching: false,
 };
 
 export interface IFetchQuoteAsync {
-  query: number,
+  query: number;
 }
 
 export const fetchQuoteByQueryAsync = createAsyncThunk(
-  'quote/fetchQuoteByQuery',
+  "quote/fetchQuoteByQuery",
   async (query: string) => {
     const response = await fetchQuoteByQuery(query);
     return response.data;
@@ -30,7 +30,7 @@ export const fetchQuoteByQueryAsync = createAsyncThunk(
 );
 
 export const searchBarSlice = createSlice({
-  name: 'searchBar',
+  name: "searchBar",
   initialState,
   reducers: {
     setIsSearching: (state, action: PayloadAction<boolean>) => {
@@ -49,10 +49,10 @@ export const searchBarSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchQuoteByQueryAsync.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(fetchQuoteByQueryAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
+        state.status = "idle";
         state.quotes = action.payload.rows;
       });
   },
@@ -63,8 +63,10 @@ export const { setIsSearching } = searchBarSlice.actions;
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectSearchedQuotes = (state: RootState) => state.searchBar.quotes;
-export const selectIsSearching = (state: RootState) => state.searchBar.isSearching;
+export const selectSearchedQuotes = (state: RootState) =>
+  state.searchBar.quotes;
+export const selectIsSearching = (state: RootState) =>
+  state.searchBar.isSearching;
 export const selectStatus = (state: RootState) => state.searchBar.status;
 
 // We can also write thunks by hand, which may contain both sync and async logic.

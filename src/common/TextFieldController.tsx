@@ -2,8 +2,8 @@ import React from "react";
 import { Controller as ReactHookController, Control } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
 import { get } from "lodash";
-import { DELIMETER } from '../utilites'; 
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { DELIMETER } from "../utilites";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,8 +28,10 @@ interface ITextFieldController {
 export default function TextFieldController(props: ITextFieldController) {
   const classes = useStyles();
   const { path, label, multiline, isArray, quote, control } = props;
-  const defaultValue = isArray ? get(quote, path, []).join(DELIMETER) : get(quote, path, "");
-  
+  const defaultValue = isArray
+    ? get(quote, path, []).join(DELIMETER)
+    : get(quote, path, "");
+
   return (
     <div className={classes.reactHookController}>
       <ReactHookController

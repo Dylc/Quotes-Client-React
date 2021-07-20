@@ -6,7 +6,12 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useDispatch } from "react-redux";
-import { selectLang, ILanguage, enumLanguages, setLang} from "./contextMenuSlice";
+import {
+  selectLang,
+  ILanguage,
+  enumLanguages,
+  setLang,
+} from "./contextMenuSlice";
 import { useAppSelector } from "../../app/hooks";
 import styles from "./ContextMenu.module.css";
 
@@ -21,19 +26,19 @@ const useStyles = makeStyles({
   },
 });
 
-const languages : ILanguage[] = [
+const languages: ILanguage[] = [
   {
     name: "English",
     abb: enumLanguages.EN,
   },
   {
     name: "Russian",
-    abb: enumLanguages.RU
+    abb: enumLanguages.RU,
   },
   {
     name: "Hebrew",
-    abb: enumLanguages.HE
-  }
+    abb: enumLanguages.HE,
+  },
 ];
 
 interface ISelectLanguageDialog {
@@ -46,18 +51,18 @@ function SelectLanguageDialog(props: ISelectLanguageDialog) {
   const dispatch = useDispatch();
   const { handleContextMenuClose, handleToggleOpenSelectLangDialog } = props;
 
-  const [selectedLang, setSelectedLang] = useState(useAppSelector(selectLang))
+  const [selectedLang, setSelectedLang] = useState(useAppSelector(selectLang));
 
   const handleSetLang = (language: ILanguage) => {
-    dispatch(setLang(language.abb))
-    setSelectedLang(language.abb)
-  }
+    dispatch(setLang(language.abb));
+    setSelectedLang(language.abb);
+  };
 
   return (
     <Dialog
       open={true}
       onClose={() => {
-        handleToggleOpenSelectLangDialog()
+        handleToggleOpenSelectLangDialog();
         handleContextMenuClose();
       }}
       aria-labelledby="select-langauge-dialog"
@@ -68,8 +73,8 @@ function SelectLanguageDialog(props: ISelectLanguageDialog) {
           <ListItem
             button
             className={styles.listItem}
-            classes={{selected: styles.listItemSelected}}
-            selected={selectedLang === language.abb }
+            classes={{ selected: styles.listItemSelected }}
+            selected={selectedLang === language.abb}
             onClick={() => handleSetLang(language)}
             key={language.name}
           >

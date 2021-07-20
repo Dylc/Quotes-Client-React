@@ -7,7 +7,7 @@ import {
   selectAddStatus,
   selectEditResult,
   selectAddResult,
-  cleanResultFor
+  cleanResultFor,
 } from "./formSlice";
 import { IQuote, selectQuotes, selectCounter } from "../quote/quoteSlice";
 import { SHARED_MESSAGES } from "../../lang/messages.js";
@@ -17,8 +17,8 @@ import styles from "./Form.module.css";
 import Loading from "../../common/Loading";
 import Confirmation from "../../common/Confirmation";
 import TextFieldController from "../../common/TextFieldController";
-import Button from '@material-ui/core/Button';
-import { formatData } from '../../utilites'; 
+import Button from "@material-ui/core/Button";
+import { formatData } from "../../utilites";
 
 const fields = [
   { path: "title.ru", label: "Title - Russian" },
@@ -64,9 +64,9 @@ export function QuoteForm() {
   };
 
   const handleOnCloseAlert = () => {
-    const value = addResult ? "ADD" : "EDIT"
-    dispatch(cleanResultFor(value))
-  }
+    const value = addResult ? "ADD" : "EDIT";
+    dispatch(cleanResultFor(value));
+  };
 
   const onSubmit = (formData) => {
     const newQuote = formatData(formData);

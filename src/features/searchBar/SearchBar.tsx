@@ -1,7 +1,17 @@
 import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { fade, makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { fetchQuoteByQueryAsync, selectSearchedQuotes, setIsSearching, selectIsSearching } from './searchBarSlice';
+import {
+  fade,
+  makeStyles,
+  Theme,
+  createStyles,
+} from "@material-ui/core/styles";
+import {
+  fetchQuoteByQueryAsync,
+  selectSearchedQuotes,
+  setIsSearching,
+  selectIsSearching,
+} from "./searchBarSlice";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { useHistory } from "react-router-dom";
@@ -48,9 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
 export function SearchBar() {
-
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const history = useHistory();
@@ -60,20 +68,20 @@ export function SearchBar() {
 
   // console.log("searchedQuotes: ", searchedQuotes)
   // console.log(" history.location.pathname: ",  history.location.pathname)
-  
-  if (isSearching && history.location.pathname !== '/searched'){
-    history.push('/searched');
-  } else if (!isSearching && history.location.pathname == '/searched'){
-    history.push('/');
+
+  if (isSearching && history.location.pathname !== "/searched") {
+    history.push("/searched");
+  } else if (!isSearching && history.location.pathname == "/searched") {
+    history.push("/");
   }
 
   const handleOnSearch = (event) => {
-    const query = event.target.value
-    console.log('query:', query)
-    const isSearching = query === ""
-    dispatch(setIsSearching(!isSearching))
-    dispatch(fetchQuoteByQueryAsync(query))
-  }
+    const query = event.target.value;
+    console.log("query:", query);
+    const isSearching = query === "";
+    dispatch(setIsSearching(!isSearching));
+    dispatch(fetchQuoteByQueryAsync(query));
+  };
 
   return (
     <div className={classes.search}>

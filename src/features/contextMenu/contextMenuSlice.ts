@@ -1,25 +1,25 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
-import { fetchCount } from './contextMenuAPI';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState, AppThunk } from "../../app/store";
+import { fetchCount } from "./contextMenuAPI";
 
 export interface ILanguage {
   name: string;
-  abb: enumLanguages
+  abb: enumLanguages;
 }
 
 export enum enumLanguages {
-  RU = 'ru',
-  HE = 'he',
-  EN = 'en',
+  RU = "ru",
+  HE = "he",
+  EN = "en",
 }
 export interface contextMenuState {
   lang: enumLanguages | string;
-  status: 'idle' | 'loading' | 'failed';
+  status: "idle" | "loading" | "failed";
 }
 
 const initialState: contextMenuState = {
-  lang: localStorage.getItem('language') || enumLanguages.HE,
-  status: 'idle',
+  lang: localStorage.getItem("language") || enumLanguages.HE,
+  status: "idle",
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -28,7 +28,7 @@ const initialState: contextMenuState = {
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
 export const incrementAsync = createAsyncThunk(
-  'counter/fetchCount',
+  "counter/fetchCount",
   async (amount: number) => {
     const response = await fetchCount(amount);
     // The value we return becomes the `fulfilled` action payload
@@ -37,13 +37,13 @@ export const incrementAsync = createAsyncThunk(
 );
 
 export const contextMenuSlice = createSlice({
-  name: 'contextMenu',
+  name: "contextMenu",
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     setLang: (state, action: PayloadAction<enumLanguages>) => {
       state.lang = action.payload;
-      localStorage.setItem('language', action.payload)
+      localStorage.setItem("language", action.payload);
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,

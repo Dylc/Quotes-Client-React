@@ -23,7 +23,6 @@
   font-size: calc(10px + 2vmin);
 }
 
-
 .App-container {
   min-height: calc(100vh - 64px);
   /* display: flex;
@@ -50,16 +49,18 @@
 }
 
 @font-face {
-  font-family: 'DanaYad';
-  src: local('DanaYad'), url(./fonts/DanaYadAlefAlefAlef-Normal.woff) format('woff');
+  font-family: "DanaYad";
+  src: local("DanaYad"),
+    url(./fonts/DanaYadAlefAlefAlef-Normal.woff) format("woff");
 }
 
 @font-face {
-  font-family: 'Yiddish';
-  src: local('Yiddish'), url(./fonts/YiddishkeitAlefAlefAlef-Bold.woff) format('woff');
+  font-family: "Yiddish";
+  src: local("Yiddish"),
+    url(./fonts/YiddishkeitAlefAlefAlef-Bold.woff) format("woff");
 }
 
 @font-face {
-  font-family: 'Varela';
-  src: local('Varela'), url(./fonts/VarelaRound-Regular.ttf) format('truetype');
+  font-family: "Varela";
+  src: local("Varela"), url(./fonts/VarelaRound-Regular.ttf) format("truetype");
 }
