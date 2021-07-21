@@ -37,7 +37,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "npx prettier --write .",
-    "prettier-check": "npx prettier --check ."
+    "prettier-check": "npx prettier --check .",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,6 +57,11 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "2.3.2"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
