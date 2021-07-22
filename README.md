@@ -5,7 +5,7 @@
 - [Serve](#serve)
   - [Own Server](#own-server)
 
-#Quotes app
+# Quotes app
 
 ## Run
 
@@ -30,4 +30,4 @@ If you prefer server files on you own server use the following commands
 2. Copy to your server `scp ./build.tar <username>@<serverIP>:<fullPath>`
 3. Enter to your server and cd to path
 4. Unarchive `tar -xvf build.tar `
-5. For nginx see [this](https://futurestud.io/tutorials/nginx-how-to-serve-a-static-html-page#:~:text=To%20serve%20static%20files%20with,which%20contains%20all%20the%20files. "this") tutorial how to server statyic files
+5. For nginx see [this](https://futurestud.io/tutorials/nginx-how-to-serve-a-static-html-page#:~:text=To%20serve%20static%20files%20with,which%20contains%20all%20the%20files. "this") tutorial how to server static files
