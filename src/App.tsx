@@ -5,7 +5,7 @@ import { IntlProvider } from "react-intl";
 import messages from "./lang";
 import { selectLang } from "../src/features/contextMenu/contextMenuSlice";
 import { useAppSelector } from "../src/app/hooks";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Home from "./pages/Home";
 import Edit from "./pages/Edit";
