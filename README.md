@@ -1,8 +1,9 @@
 **Table of Contents**
 
-[TOCM]
-
-[TOC]
+- [Run](#run)
+- [Build](#build)
+- [Serve](#serve)
+  - [Own Server](#own-server)
 
 #Quotes app
 
