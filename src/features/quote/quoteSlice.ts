@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { fetchQuotes } from "./quoteAPI";
+import { fetchQuotes, fetchQuotesByTags } from "./quoteAPI";
 
 export interface IQuote {
   id: string;
@@ -17,10 +17,12 @@ export interface IQuote {
 }
 export interface QuoteState {
   quotes: IQuote[];
+  quotesByTags: IQuote[];
   count?: number;
   counter: number;
   skip: number;
   status: "idle" | "loading" | "failed";
+  statusByTags: "idle" | "loading" | "failed";
 }
 
 const initialState: QuoteState = {
@@ -28,6 +30,8 @@ const initialState: QuoteState = {
   skip: 0,
   counter: 0,
   status: "idle",
+  quotesByTags: [],
+  statusByTags: "idle",
 };
 
 export interface IFetchQuoteAsync {
@@ -35,10 +39,24 @@ export interface IFetchQuoteAsync {
   skip: number;
 }
 
+export interface IFetchQuoteByTagAsync {
+  tag: string;
+  lang: string;
+}
+
 export const fetchQuoteAsync = createAsyncThunk(
   "quote/fetchQuotes",
   async (props: IFetchQuoteAsync) => {
     const response = await fetchQuotes(props);
+    return response.data;
+  }
+);
+
+
+export const searchByTagAsync = createAsyncThunk(
+  "quote/fetchQuotesByTag",
+  async (props: IFetchQuoteByTagAsync) => {
+    const response = await fetchQuotesByTags(props);
     return response.data;
   }
 );
@@ -70,6 +88,13 @@ export const quoteSlice = createSlice({
         state.quotes = [...state.quotes, ...action.payload.rows];
         state.count = action.payload.count;
         state.skip += action.payload.rows.length;
+      })
+      .addCase(searchByTagAsync.pending, (state) => {
+        state.statusByTags = "loading";
+      })
+      .addCase(searchByTagAsync.fulfilled, (state, action) => {
+        state.statusByTags = "idle";
+        state.quotesByTags = action.payload.rows;
       });
   },
 });
@@ -84,6 +109,8 @@ export const selectStatus = (state: RootState) => state.quote.status;
 export const selectCount = (state: RootState) => state.quote.count;
 export const selectSkip = (state: RootState) => state.quote.skip;
 export const selectCounter = (state: RootState) => state.quote.counter;
+export const selectQuotesFetchedByTags = (state: RootState) => state.quote.quotesByTags;
+export const selectStatusByTags = (state: RootState) => state.quote.statusByTags;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.

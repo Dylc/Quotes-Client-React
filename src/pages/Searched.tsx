@@ -11,6 +11,7 @@ import {
   selectSearchedQuotes,
 } from "../features/searchBar/searchBarSlice";
 import { selectLang } from "../features/contextMenu/contextMenuSlice";
+import { selectQuotesFetchedByTags, selectStatusByTags } from "../features/quote/quoteSlice";
 import NoResults from "../common/NoResults";
 import Loading from "../common/Loading";
 
@@ -33,7 +34,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function Searched(props) {
   const searchedQuotes = useAppSelector(selectSearchedQuotes);
+  const quotesFetchedByTags = useAppSelector(selectQuotesFetchedByTags);
   const status = useAppSelector(selectStatus);
+  const statusByTags = useAppSelector(selectStatusByTags);
   const lang = useAppSelector(selectLang);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<number | false>(false);
@@ -43,41 +46,46 @@ function Searched(props) {
       setExpanded(isExpanded ? panel : false);
     };
 
-  const getResult = () => (
-    <div className={classes.root}>
-      {searchedQuotes.map((quote, index) => {
-        return (
-          <Accordion
-            key={quote.id}
-            expanded={expanded === index}
-            onChange={handleChange(index)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1bh-content"
-              id="panel1bh-header"
+  const getResult = () => {
+    const data = quotesFetchedByTags || searchedQuotes
+    return (
+      <div className={classes.root}>
+        {data.map((quote, index) => {
+          return (
+            <Accordion
+              key={quote.id}
+              expanded={expanded === index}
+              onChange={handleChange(index)}
             >
-              <Typography className={classes.heading}>
-                {quote.title[lang]}
-              </Typography>
-              <Typography className={classes.secondaryHeading}>
-                {quote.author[lang]}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography
-                dangerouslySetInnerHTML={{ __html: quote.context[lang] || "" }}
-              />
-            </AccordionDetails>
-          </Accordion>
-        );
-      })}
-    </div>
-  );
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <Typography className={classes.heading}>
+                  {quote.title[lang]}
+                </Typography>
+                <Typography className={classes.secondaryHeading}>
+                  {quote.author[lang]}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  dangerouslySetInnerHTML={{
+                    __html: quote.context[lang] || "",
+                  }}
+                />
+              </AccordionDetails>
+            </Accordion>
+          );
+        })}
+      </div>
+    );
+  };
 
-  return status === "loading" ? (
+  return status === "loading" || statusByTags === "loading" ? (
     <Loading />
-  ) : searchedQuotes.length === 0 ? (
+  ) : searchedQuotes.length === 0 && quotesFetchedByTags.length === 0? (
     <NoResults />
   ) : (
     getResult()
