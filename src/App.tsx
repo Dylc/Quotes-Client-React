@@ -6,13 +6,13 @@ import messages from "./lang";
 import { selectLang } from "../src/features/contextMenu/contextMenuSlice";
 import { useAppSelector } from "../src/app/hooks";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import Home from "./pages/Home";
 import Edit from "./pages/Edit";
 import Add from "./pages/Add";
 import Searched from "./pages/Searched";
 
-const THEME = createMuiTheme({
+const THEME = createTheme({
   typography: {
     fontFamily: [
       "Nunito",
