@@ -1,21 +1,25 @@
 {
   "files": {
-    "main.css": "/Quotes-Client-React/static/css/main.81ab7298.chunk.css",
-    "main.js": "/Quotes-Client-React/static/js/main.461af747.chunk.js",
-    "main.js.map": "/Quotes-Client-React/static/js/main.461af747.chunk.js.map",
+    "main.css": "/Quotes-Client-React/static/css/main.bf737ccd.chunk.css",
+    "main.js": "/Quotes-Client-React/static/js/main.7ca25285.chunk.js",
+    "main.js.map": "/Quotes-Client-React/static/js/main.7ca25285.chunk.js.map",
     "runtime-main.js": "/Quotes-Client-React/static/js/runtime-main.b61d1b62.js",
     "runtime-main.js.map": "/Quotes-Client-React/static/js/runtime-main.b61d1b62.js.map",
-    "static/js/2.20e90f21.chunk.js": "/Quotes-Client-React/static/js/2.20e90f21.chunk.js",
-    "static/js/2.20e90f21.chunk.js.map": "/Quotes-Client-React/static/js/2.20e90f21.chunk.js.map",
+    "static/js/2.68269a18.chunk.js": "/Quotes-Client-React/static/js/2.68269a18.chunk.js",
+    "static/js/2.68269a18.chunk.js.map": "/Quotes-Client-React/static/js/2.68269a18.chunk.js.map",
     "index.html": "/Quotes-Client-React/index.html",
-    "static/css/main.81ab7298.chunk.css.map": "/Quotes-Client-React/static/css/main.81ab7298.chunk.css.map",
-    "static/js/2.20e90f21.chunk.js.LICENSE.txt": "/Quotes-Client-React/static/js/2.20e90f21.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/Quotes-Client-React/static/media/YiddishkeitAlefAlefAlef-Bold.3ba7f111.woff"
+    "static/css/main.bf737ccd.chunk.css.map": "/Quotes-Client-React/static/css/main.bf737ccd.chunk.css.map",
+    "static/js/2.68269a18.chunk.js.LICENSE.txt": "/Quotes-Client-React/static/js/2.68269a18.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Quotes-Client-React/static/media/YiddishkeitAlefAlefAlef-Bold.3ba7f111.woff",
+    "static/media/en.245ea6ca.svg": "/Quotes-Client-React/static/media/en.245ea6ca.svg",
+    "static/media/he.aaf88d91.svg": "/Quotes-Client-React/static/media/he.aaf88d91.svg",
+    "static/media/noResults.cdc046af.svg": "/Quotes-Client-React/static/media/noResults.cdc046af.svg",
+    "static/media/ru.d2e92f97.svg": "/Quotes-Client-React/static/media/ru.d2e92f97.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b61d1b62.js",
-    "static/js/2.20e90f21.chunk.js",
-    "static/css/main.81ab7298.chunk.css",
-    "static/js/main.461af747.chunk.js"
+    "static/js/2.68269a18.chunk.js",
+    "static/css/main.bf737ccd.chunk.css",
+    "static/js/main.7ca25285.chunk.js"
   ]
 }
