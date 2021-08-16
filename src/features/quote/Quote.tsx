@@ -39,14 +39,7 @@ export function Quote() {
 
   return (
     <div className={styles.container}>
-      {ready() ? (
-        <>
-          <QuoteWrapper />
-          <ButtonControllers />
-        </>
-      ) : (
-        <Loading />
-      )}
+      {ready() ? <QuoteWrapper /> : <Loading />}
     </div>
   );
 }

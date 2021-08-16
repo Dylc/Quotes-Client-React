@@ -80,9 +80,15 @@
 }
 
 .container {
-  margin-left: 12%;
-  margin-right: 12%;
+  padding-left: 12%;
+  padding-right: 12%;
   padding-top: 2em;
+  /* 
+    64px - header bar
+    48px - buttons container + 12px it's bottom margin
+  */
+  height: calc(100vh - 64px - 48px - 12px - 2em);
+  overflow-y: auto;
 }
 
 .title {
